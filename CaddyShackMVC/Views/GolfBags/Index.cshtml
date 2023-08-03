@@ -1,0 +1,19 @@
+﻿@model List<GolfBag>
+
+<h1>Golf Bags</h1>
+
+@{
+	if (@Model != null && @Model.Count > 0)
+	{
+		<ul>
+		@foreach (var bag in Model)
+		{
+			<li>@bag.Id | @bag.Player | Capacity: @bag.Capacity</li>
+		}
+		</ul>
+	}
+	else
+	{
+		<p>No Golf bags to display.</p>
+	}
+}
