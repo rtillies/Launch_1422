@@ -1,0 +1,11 @@
+﻿@model GolfBag
+
+<h1>Edit Golf Bag</h1>
+<h3>@Model.Player</h3>
+<form method="post" action="/golfbags/@Model.Id">
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" />
+    </div>
+    <button type="submit">Add Club</button>
+</form>
