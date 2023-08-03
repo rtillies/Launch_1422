@@ -1,6 +1,7 @@
 ﻿using CaddyShackMVC.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using CaddyShackMVC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CaddyShackMVC.Controllers
 {
@@ -14,8 +15,15 @@ namespace CaddyShackMVC.Controllers
 
         public IActionResult Index()
         {
-            var golfBags = _context.GolfBags.ToList();
-            return View(golfBags);
+            var bags = _context.GolfBags.Include(b => b.Clubs).ToList();
+            return View(bags);
+        }
+
+        [Route("golfbags/{id:int}")]
+        public IActionResult Show(int id)
+        {
+            var bag = _context.GolfBags.Include(b => b.Clubs).Where(b => b.Id == id).First();
+            return View(bag);
         }
     }
 }

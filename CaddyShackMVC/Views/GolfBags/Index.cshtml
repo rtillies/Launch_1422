@@ -8,7 +8,11 @@
 		<ul>
 		@foreach (var bag in Model)
 		{
-			<li>@bag.Id | @bag.Player | Capacity: @bag.Capacity</li>
+				<li>@bag.Id | 
+				<a href="/golfbags/@bag.Id">@bag.Player</a> | 
+				Capacity: @bag.Capacity |
+				Count: @bag.Clubs.Count
+		</li>
 		}
 		</ul>
 	}

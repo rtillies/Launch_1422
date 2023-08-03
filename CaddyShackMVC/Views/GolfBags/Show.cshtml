@@ -1,0 +1,23 @@
+﻿@model GolfBag
+
+<h1>@Model.Player</h1>
+
+@{
+	<p>@Model.Id | @Model.Player | Capacity: @Model.Capacity</p>
+
+	var clubs = Model.Clubs;
+	if(clubs != null && clubs.Count > 0)
+	{
+		<h3>Clubs</h3>
+		<ul>
+			@foreach (var club in clubs)
+			{
+				<li>@club.Name</li>
+			}
+		</ul>
+	}
+	else
+	{
+		<p>No clubs to display.</p>
+	}
+}
