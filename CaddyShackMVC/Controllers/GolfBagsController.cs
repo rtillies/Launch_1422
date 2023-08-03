@@ -39,5 +39,21 @@ namespace CaddyShackMVC.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+        public IActionResult New()
+        {
+			return View();
+		}
+
+        [HttpPost]
+        public IActionResult Index(GolfBag bag)
+        {
+            _context.GolfBags.Add(bag);
+            _context.SaveChanges();
+
+            var newBagId = bag.Id;
+
+            return RedirectToAction("Show", new { id = newBagId });
+        }
 	}
 }
