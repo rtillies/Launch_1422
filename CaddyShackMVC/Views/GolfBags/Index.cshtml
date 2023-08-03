@@ -12,7 +12,10 @@
 				<a href="/golfbags/@bag.Id">@bag.Player</a> | 
 				Capacity: @bag.Capacity |
 				Count: @bag.Clubs.Count
-		</li>
+				<form action="/golfbags/Delete/@bag.Id" method="post">
+					<button type="submit">Delete @bag.Id</button>
+				</form>
+				</li>
 		}
 		</ul>
 	}
